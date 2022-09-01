@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Homework Subpages">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <title>
+            Homework 2 Part 1
+        </title>
+        </head>
+        <body>
+    </head>
+    <body>
+        <header class="text-center">
+            <h1>Javscript Portfolio</h1>
+            <h2>By Nash Ang</h2>
+        </header>
+    <section>
+
+
+        <section>
+            <h3>Subtraction Excersise</h3>
+            
+            <form>
+            <table>
+            <tr>
+            <td><label for="num1">First Number:</label></td>
+            <td><input type="number" name="num1" id="num1" autofocus></td>
+            </tr> 
+            <tr>
+            <td><label for="num2">Second Number:</label>
+            </td>
+            <td><input type="number" name="num2" id="num2" ></td>
+            </tr> 
+            <tr>
+            <td><label for="result">Total is:</label></td>
+            <td><input type="text" name="result" id="result" readonly></td>
+            </tr> 
+            </table>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET">
+            </form>
+            
+            <script>
+            function process() { var number1, number2, subtr;
+            number1 = parseInt(document.getElementById("num1").value);
+            console.log(number1);
+            number2 = parseInt(document.getElementById("num2").value);
+            console.log(number2);
+            subtr = number1 - number2;
+            document.getElementById("result").value=subtr; }
+            </script> 
+            </section>
+
+
+        <div id="foot">
+        &#8226;
+        <strong><a href="/hw2.html">Go back to Homework 2</a></strong> 
+        &#8226;     
+        <strong><a href="/index.html">Return to Homepage</a></strong>
+        &#8226;
+        </div>
+    </section>
+    </body>
+    <footer>
+        <hr>
+        <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+      </footer>
+</html>

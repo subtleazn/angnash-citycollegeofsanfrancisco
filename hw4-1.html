@@ -11,7 +11,7 @@
 </title>
 <script>
     $(function() {
-      $(".loopResults").draggable();
+      $(".results").draggable();
     });
   </script>
 </head>
@@ -23,18 +23,18 @@
 </header>
 <section>
     <h3>Homework #4 Part 1</h3>
-    <strong id="forProduct" class="loopResults"></strong>
-    <strong id="forSum" class="loopResults"></strong><br>
+    <strong id="forProduct" class="results"></strong>
+    <strong id="forSum" class="results"></strong><br>
 
-    <strong id="whileProduct" class="loopResults"></strong>
-    <strong id="whileSum" class="loopResults"></strong>
+    <strong id="whileProduct" class="results"></strong>
+    <strong id="whileSum" class="results"></strong>
 
 <script>
 
   var forProduct = 5;
-  var productMsg = "The result of ";
+  var productMessage = "The result of ";
   var forSum = 0;
-  var sumMsg = "The result of ";
+  var sumMessage = "The result of ";
 
   for (var i = 5; i <= 25; i += 4) {
     if (i != 5) {
@@ -43,24 +43,24 @@
     forSum += i;
 
     if (i < 25) {
-      productMsg += `${i} * `;
-      sumMsg += `${i} + `;
+      productMessage += `${i} * `;
+      sumMessage += `${i} + `;
     } else {
-      productMsg += `${i} = ${forProduct.toLocaleString()}<br>`;
-      sumMsg += `${i} = ${forSum}<br>`;
+      productMessage += `${i} = ${forProduct.toLocaleString()}<br>`;
+      sumMessage += `${i} = ${forSum}<br>`;
     }
   }
 
-  document.getElementById("forProduct").innerHTML = productMsg
-  document.getElementById("forSum").innerHTML = sumMsg
+  document.getElementById("forProduct").innerHTML = productMessage
+  document.getElementById("forSum").innerHTML = sumMessage
 </script>
 
 <script>
 
   var whileProduct = 3;
-  var productMsg = "The result of ";
+  var productMessage = "Result of ";
   var whileSum = 0;
-  var sumMsg = "The result of ";
+  var sumMessage = "Result of ";
   var i = 3;
 
   while (i <= 18) {
@@ -70,18 +70,18 @@
     whileSum += i;
 
     if (i < 18) {
-      productMsg += `${i} * `;
-      sumMsg += `${i} + `;
+      productMessage += `${i} * `;
+      sumMessage += `${i} + `;
     } else {
-      productMsg += `${i} = ${whileProduct.toLocaleString()}<br>`;
-      sumMsg += `${i} = ${whileSum}<br>`;
+      productMessage += `${i} = ${whileProduct.toLocaleString()}<br>`;
+      sumMessage += `${i} = ${whileSum}<br>`;
     }
 
     i += 3;
   }
 
-  document.getElementById("whileProduct").innerHTML = productMsg;
-  document.getElementById("whileSum").innerHTML = sumMsg;
+  document.getElementById("whileProduct").innerHTML = productMessage;
+  document.getElementById("whileSum").innerHTML = sumMessage;
 </script>
 
 

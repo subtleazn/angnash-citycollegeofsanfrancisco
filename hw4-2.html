@@ -10,24 +10,23 @@
   Compount Interest
 </title>
 <style>
-  table {
+
+td, th {
+    border: 1px solid #777;
+    padding: 0.5rem;
+    text-align: center;
+}
+ 
+table {
     border-collapse: collapse;
-  }
-
-  th {
-    background-color: #404040;
-    color: #fff;
-    font-weight: normal;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #bdbdbd;
-  }
-
-  td {
-    padding-left: 8px;
-  }
+}
+ 
+tbody tr:nth-child(odd) {
+    background: #eee;
+}
+caption {
+    font-size: 0.8rem;
+}
 </style>
 </head>
 
@@ -38,25 +37,22 @@
 </header>
 <section>
   <h3>Homework #4 Part 2</h3>
-<div id="interestResult"></div>
+<div id="results"></div>
 
 <script>
-  // Declare varibles
   var tb = "";
-  var baseInterestRate = 0.05;
+  var interestRate = 0.05;
 
-  // For loop to create 3 tables
   for (var i = 0; i < 3; i++) {
     tb += "<table><tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>"
     for (var j = 1; j <= 4; j++) {
-      tb += `<tr><td>${j}</td><td>${(1000 * Math.pow(1 + baseInterestRate, j)).toFixed(2)}</td><td>${baseInterestRate.toFixed(2)}</td></tr>`;
+      tb += `<tr><td>${j}</td><td>${(1000 * Math.pow(1 + interestRate, j)).toFixed(2)}</td><td>${interestRate.toFixed(2)}</td></tr>`;
     }
     tb += "</table><br>";
-    baseInterestRate += 0.01;
+    interestRate += 0.01;
   }
 
-  // Display tables on webpage
-  document.getElementById("interestResult").innerHTML = tb;
+  document.getElementById("results").innerHTML = tb;
 </script>
 
 

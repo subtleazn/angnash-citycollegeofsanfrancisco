@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Homework 3 Part 2">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <title>
+            Homework 3 Part 3
+        </title>
+        <script>
+          $(document).ready(function(){
+            $("#temperature-conversion").validate({
+              rules: {
+                temp: {required: true, number: true}
+              }
+            });
+          });
+      
+          function fahrenheitToCelcius() {
+            if($("#temperature-conversion").valid()) {
+              var temp = parseInt(document.getElementById("temp").value);
+              var celcius = parseInt(5 / 9 * (temp - 32));
+              document.getElementById("conversionResult").value = `${temp}°F is ${celcius}°C`;
+            } else {
+              document.getElementById("conversionResult").value = "Please enter a valid number!";
+            }
+          }
+      
+          function celciusToFahrenheit() {
+            if($("#temperature-conversion").valid()) {
+              var temp = parseInt(document.getElementById("temp").value);
+              var fahrenheit = parseInt((9 / 5 * temp) + 32);
+              document.getElementById("conversionResult").value = `${temp}°C is ${fahrenheit}°F`;
+            } else {
+              document.getElementById("conversionResult").value = "Please enter a valid number!";
+            }
+          }
+        </script>
+        </head>
+        <body>
+    </head>
+    
+    <body>
+        <header class="text-center">
+            <h1>Temperature Converter</h1>
+            <h2>By Nash Ang</h2>
+        </header>
+    <section>
+      <form id="temperature-conversion" onsubmit=";return false">
+        <label for="temp">Temperature</label>
+        <input type="number" id="temp" autofocus><br>
+        <button onclick="fahrenheitToCelcius()">F to C</button>
+        <button onclick="celciusToFahrenheit()">C to F</button>
+        <button type="reset">Reset</button><br>
+        <label for="conversionResult">Result</label><br>
+        <textarea name="conversionResult" id="conversionResult" cols="20" rows="5" readonly></textarea>
+      </form>
+    </section>
+    <div id="foot">
+      &#8226;
+      <strong><a href="/hw3.html">Go back to Homework 3</a></strong> 
+      &#8226;     
+      <strong><a href="/index.html">Return to Homepage</a></strong>
+      &#8226;
+      </div>
+    </body>
+    <footer>
+        <hr>
+        <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+      </footer>
+</html>
+

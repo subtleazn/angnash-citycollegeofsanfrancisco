@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Homework 3 Part 1">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <title>
+            Homework 3 Part 1
+        </title>
+        <script>
+          $(document).ready(function(){
+            $("#grade-calculator").validate({
+              rules: {
+                homework: {required: true, number: true, min: 0, max: 100},
+                midterm: {required: true, number: true, min: 0, max: 100},
+                final: {required: true, number: true, min: 0, max: 100},
+                participation: {required: true, number: true, min: 0, max: 100}
+              }
+            });
+          });
+      
+          function process() {
+            if($("#grade-calculator").valid()) {
+
+              var homework, midterm, final, participation, average, grade;
+              homework = parseFloat(document.getElementById("homework").value);
+              midterm = parseFloat(document.getElementById("midterm").value);
+              final = parseFloat(document.getElementById("final").value);
+              participation = parseFloat(document.getElementById("participation").value);
+              average =  ((0.5 * homework) + (0.2 * midterm) + (0.2 * final) + (0.1 * participation)).toFixed(2);
+              if (average >= 90) {
+                grade = "A"
+              } else if (average >= 80) {
+                grade = "B"
+              } else if (average >= 70) {
+                grade = "C"
+              } else if (average >= 60) {
+                grade = "D"
+                return document.getElementById("result").value = `Your grade is ${average}% which is ${grade}. Please talk to your professor.`;
+              } else {
+                grade = "F"
+                return document.getElementById("result").value = `Your grade is ${average}% which is ${grade}. Unfortunately, you must retake the course.`;
+              }
+              document.getElementById("result").value = `${average} ${grade}`;
+            } else {
+              document.getElementById("result").value = "Error! Please enter numbers from from 1 to 100.";
+            }
+          };
+        </script>
+        </head>
+        <body>
+    </head>
+    
+    <body>
+        <header class="text-center">
+            <h1>Student Grade Calculator</h1>
+            <h2>By Nash Ang</h2>
+        </header>
+    <section>
+      <form id="grade-calculator" onsubmit="process();return false">
+        <label for="homework">Homework Average</label>
+        <input type="number" name="homework" id="homework" autofocus><br>
+        <label for="participation">Participation Average</label>
+        <input type="number" name="participation" id="participation"><br>
+        <label for="midterm">Mid-Term Examinaton Score</label>
+        <input type="number" name="midterm" id="midterm"><br>
+        <label for="final">Final Examination Score</label>
+        <input type="number" name="final" id="final"><br>
+        <button type="submit" onsubmit="process()">Submit</button>
+        <button type="reset">Reset</button><br>
+        <textarea name="result" id="result" cols="30" rows="10"></textarea>
+      </form>
+    </section>
+    <div id="foot">
+      &#8226;
+      <strong><a href="/hw3.html">Go back to Homework 3</a></strong> 
+      &#8226;     
+      <strong><a href="/index.html">Return to Homepage</a></strong>
+      &#8226;
+      </div>
+    </body>
+    <footer>
+        <hr>
+        <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+      </footer>
+</html>
+

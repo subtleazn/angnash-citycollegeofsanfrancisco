@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Compount Interest">
+<link rel="stylesheet" type="text/css" href="index.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Compount Interest
+</title>
+<style>
+  table {
+    border-collapse: collapse;
+  }
+
+  th {
+    background-color: #404040;
+    color: #fff;
+    font-weight: normal;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #bdbdbd;
+  }
+
+  td {
+    padding-left: 8px;
+  }
+</style>
+</head>
+
+<body>
+<header class="text-center">
+    <h1>Compount Interest</h1>
+    <h2>By Nash Ang</h2>
+</header>
+<section>
+
+<div id="interestResult"></div>
+
+<script>
+  // Declare varibles
+  var tb = "";
+  var baseInterestRate = 0.05;
+
+  // For loop to create 3 tables
+  for (var i = 0; i < 3; i++) {
+    tb += "<table><tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>"
+    for (var j = 1; j <= 4; j++) {
+      tb += `<tr><td>${j}</td><td>${(1000 * Math.pow(1 + baseInterestRate, j)).toFixed(2)}</td><td>${baseInterestRate.toFixed(2)}</td></tr>`;
+    }
+    tb += "</table><br>";
+    baseInterestRate += 0.01;
+  }
+
+  // Display tables on webpage
+  document.getElementById("interestResult").innerHTML = tb;
+</script>
+
+
+<div id="foot">
+    <br>
+    &#8226;
+    <strong><a href="/hw4.html">Go back to Homework 4</a></strong> 
+    &#8226;     
+    <strong><a href="/index.html">Return to Homepage</a></strong>
+    &#8226;
+    </div>
+</section>
+<footer>
+    <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+</footer>
+</body>
+</html>

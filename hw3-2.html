@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Homework 3 Part 2">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <title>
+            Homework 3 Part 2
+        </title>
+        <script>
+          $(document).ready(function(){
+            $("#earnings-calculator").validate({
+              rules: {
+                item1: {required: true, number: true, min: 0},
+                item2: {required: true, number: true, min: 0},
+                item3: {required: true, number: true, min: 0},
+                item4: {required: true, number: true, min: 0},
+              }
+            });
+          });
+      
+          function process() {
+            if($("#earnings-calculator").valid()) {
+              var qtyItem1, qtyItem2, qtyItem3, qtyItem4, total1, total2, total3, total4, totalQtySold, totalAmount, totalWeeklyEarnings;
+      
+              qtyItem1 = parseInt(document.getElementById("item1").value);
+              qtyItem2 = parseInt(document.getElementById("item2").value);
+              qtyItem3 = parseInt(document.getElementById("item3").value);
+              qtyItem4 = parseInt(document.getElementById("item4").value);
+      
+              document.getElementById("qtySold1").value = qtyItem1;
+              document.getElementById("qtySold2").value = qtyItem2;
+              document.getElementById("qtySold3").value = qtyItem3;
+              document.getElementById("qtySold4").value = qtyItem4;
+
+              function getTotal(qty, price) {
+                return parseFloat((qty * price).toFixed(2));
+              }
+
+              total1 = getTotal(qtyItem1, 20.99);
+              total2 = getTotal(qtyItem2, 12.75);
+              total3 = getTotal(qtyItem3, 9.95);
+              total4 = getTotal(qtyItem2, 35.89);
+      
+              document.getElementById("total1").value = total1;
+              document.getElementById("total2").value = total2;
+              document.getElementById("total3").value = total3;
+              document.getElementById("total4").value = total4;
+      
+              totalQtySold = qtyItem1 + qtyItem2 + qtyItem3 + qtyItem4;
+              document.getElementById("totalQtySold").value = totalQtySold;
+
+              totalAmount = total1 + total2 + total3 + total4;
+
+              totalWeeklyEarnings = ((totalAmount * 0.09) + 250).toFixed(2);
+              document.getElementById("totalWeeklyEarnings").value = totalWeeklyEarnings;
+            } else {
+              document.getElementById("message").textContent = "Error: Please enter a number greater than 0"
+            }
+          }
+      
+          $(function(){
+            $("#name").tooltip();
+          });
+        </script>
+        </head>
+        <body>
+    </head>
+    
+    <body>
+        <header class="text-center">
+            <h1>Earnings Calculator</h1>
+            <h2>By Nash Ang</h2>
+        </header>
+    <section>
+
+      <form id="earnings-calculator" onsubmit="process();return false">
+        <label for="name">Name of Merchant:</label>
+        <input type="text" name="name" id="name" title="Please type your name correctly.">
+        <p>Please input the number of products you sold:</p>
+        <label for="item1">Item 1:</label>
+        <input type="text" name="item1" id="item1"><br>
+        <label for="item2">Item 2:</label>
+        <input type="text" name="item2" id="item2"><br>
+        <label for="item3">Item 3:</label>
+        <input type="text" name="item3" id="item3"><br>
+        <label for="item4">Item 4:</label>
+        <input type="text" name="item4" id="item4"><br>
+        <p id="message"></p>
+        <button type="submit" onsubmit="process()">Submit</button>
+        <button type="reset">Reset Form</button>
+      </form>
+
+      <table id="earnings-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>$ Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>$20.99</td>
+            <td><input type="number" id="qtySold1" readonly></td>
+            <td><input type="number" class="value" id="total1" readonly></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>$12.75</td>
+            <td><input type="number" id="qtySold2" readonly></td>
+            <td><input type="number" class="value" id="total2" readonly></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>$9.95</td>
+            <td><input type="number" id="qtySold3" readonly></td>
+            <td><input type="number" class="value" id="total3" readonly></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>$35.89</td>
+            <td><input type="number" id="qtySold4" readonly></td>
+            <td><input type="number" class="value" id="total4" readonly></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td><label for="totalQtySold">Total Amount Sold </label></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td><input type="number" class="value" id="totalQtySold" readonly></td>
+          </tr>
+          <tr>
+            <td><label for="totalWeeklyEarnings">Total Weekly Earnings $</label></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td><input type="number" class="value" id="totalWeeklyEarnings" readonly></td>
+          </tr>
+        </tfoot>
+      </table>
+      <br>
+    </section>
+    <div id="foot">
+      &#8226;
+      <strong><a href="/hw3.html">Go back to Homework 3</a></strong> 
+      &#8226;     
+      <strong><a href="/index.html">Return to Homepage</a></strong>
+      &#8226;
+      </div>
+    </body>
+    <footer>
+        <hr>
+        <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+      </footer>
+</html>
+

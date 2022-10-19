@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Exchange Rate Converter">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>
+            Exchange Rate Converter
+        </title>
+        <script>
+          $(document).ready(function() {
+            $("#flip").click(function() {
+              $("#panel").slideToggle("slow");
+            });
+            $("#usd").focus(function() {
+              $(this).css("background-color", 'yellow');
+            });
+          });
+      
+          function process() {
+            var usd = parseInt(document.getElementById("usd").value);
+      
+            const eurRate = 0.84;
+            const cadRate = 1.23;
+            const hkdRate = 7.76;
+            const jpyRate = 110.80;
+            const mxnRate = 19.82;
+      
+            function usdConversion(usdAmount, exchangeRate) {
+              return (usdAmount * exchangeRate).toFixed(2);
+            }
+      
+            document.getElementById("eur").value = usdConversion(usd, eurRate);
+            document.getElementById("cad").value = usdConversion(usd, cadRate);
+            document.getElementById("hkd").value = usdConversion(usd, hkdRate);
+            document.getElementById("jpy").value = usdConversion(usd, jpyRate);
+            document.getElementById("mxn").value = usdConversion(usd, mxnRate);
+          }
+      
+        </script>
+        </head>
+        <body>
+    </head>
+    <body>
+        <header class="text-center">
+            <h1>Exchange Rate Converter</h1>
+            <h2>By Nash Ang</h2>
+        </header>
+    <section>
+
+      <button id="flip">Show/Hide Instructions</button>
+      <h3 id="panel">Enter the dollar amount in the table below to see the corresponding exchange rate:</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th><strong>Foreign Exchange Rate</strong></th>
+            <td class="empty"></td>
+            <td class="empty"></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Currency</th>
+            <th>Rate</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Euro</td>
+            <td>0.84</td>
+            <td><input type="text" id="eur" class="value" readonly></td>
+          </tr>
+          <tr>
+            <td>Canadian Dollar</td>
+            <td>1.23</td>
+            <td><input type="text" id="cad" class="value" readonly></td>
+          </tr>
+          <tr>
+            <td>Hong Kong Dollar</td>
+            <td>7.76</td>
+            <td><input type="text" id="hkd" class="value" readonly></td>
+          </tr>
+          <tr>
+            <td>Japanese Yen</td>
+            <td>110.80</td>
+            <td><input type="text" id="jpy" class="value" readonly></td>
+          </tr>
+          <tr>
+            <td>Mexican Peso</td>
+            <td>19.82</td>
+            <td><input type="text" id="mxn" class="value" readonly></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th><label for="usd">Enter Amount of U.S. Dollars</label></th>
+            <td><input type="number" id="usd" onchange="process()"></td>
+            <td class="empty"></td>
+          </tr>
+        </tfoot>
+      </table>
+ 
+        <div id="foot">
+        <br>
+        &#8226;
+        <strong><a href="/hw2.html">Go back to Homework 2</a></strong> 
+        &#8226;     
+        <strong><a href="/index.html">Return to Homepage</a></strong>
+        &#8226;
+        </div>
+    </section>
+    </body>
+    <footer>
+        <hr>
+        <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+      </footer>
+</html>

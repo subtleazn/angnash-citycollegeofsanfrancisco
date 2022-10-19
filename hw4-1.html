@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Homework 4 Part 1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    Homework 4 Part 1
+</title>
+<script>
+    $(function() {
+      $(".loopResults").draggable();
+    });
+  </script>
+</head>
+
+<body>
+<header class="text-center">
+    <h1>Loop Exercise</h1>
+    <h2>By Nash Ang</h2>
+</header>
+<section>
+
+
+
+    <strong id="forProduct" class="loopResults"></strong>
+    <strong id="forSum" class="loopResults"></strong><br>
+
+    <strong id="whileProduct" class="loopResults"></strong>
+    <strong id="whileSum" class="loopResults"></strong>
+  </section>
+</main>
+
+<script>
+
+  var forProduct = 5;
+  var productMsg = "The result of ";
+  var forSum = 0;
+  var sumMsg = "The result of ";
+
+  for (var i = 5; i <= 25; i += 4) {
+    if (i != 5) {
+      forProduct = forProduct * i;
+    }
+    forSum += i;
+
+    if (i < 25) {
+      productMsg += `${i} * `;
+      sumMsg += `${i} + `;
+    } else {
+      productMsg += `${i} = ${forProduct.toLocaleString()}<br>`;
+      sumMsg += `${i} = ${forSum}<br>`;
+    }
+  }
+
+  document.getElementById("forProduct").innerHTML = productMsg
+  document.getElementById("forSum").innerHTML = sumMsg
+</script>
+
+<script>
+
+  var whileProduct = 3;
+  var productMsg = "The result of ";
+  var whileSum = 0;
+  var sumMsg = "The result of ";
+  var i = 3;
+
+  while (i <= 18) {
+    if (i != 3) {
+      whileProduct = whileProduct * i;
+    }
+    whileSum += i;
+
+    if (i < 18) {
+      productMsg += `${i} * `;
+      sumMsg += `${i} + `;
+    } else {
+      productMsg += `${i} = ${whileProduct.toLocaleString()}<br>`;
+      sumMsg += `${i} = ${whileSum}<br>`;
+    }
+
+    i += 3;
+  }
+
+  document.getElementById("whileProduct").innerHTML = productMsg;
+  document.getElementById("whileSum").innerHTML = sumMsg;
+</script>
+
+
+<div id="foot">
+    <br>
+    &#8226;
+    <strong><a href="/hw4.html">Go back to Homework 4</a></strong> 
+    &#8226;     
+    <strong><a href="/index.html">Return to Homepage</a></strong>
+    &#8226;
+    </div>
+</section>
+<footer>
+    <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+</footer>
+</body>
+</html>

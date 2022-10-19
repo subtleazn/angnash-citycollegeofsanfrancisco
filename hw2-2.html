@@ -12,7 +12,7 @@
         </title>
         <script>
             $(document).ready(function() {
-              $("#fade-button").click(function() {
+              $("#button").click(function() {
                 $("#result").fadeTo("slow", 0.15);
               });
               $("#submit").click(function() {
@@ -21,18 +21,18 @@
             });
         
             function process() {
-              var number1, number2, number3, n1, n2, n3, sum, average, product, min, max, result;
+              var figure1, figure2, figure3, n1, n2, n3, sum, average, product, min, max, result;
     
-              number1 = document.getElementById('num1').value;
-              number2 = document.getElementById('num2').value;
-              number3 = document.getElementById('num3').value;
+              figure1 = document.getElementById('number1').value;
+              figure2 = document.getElementById('number2').value;
+              figure3 = document.getElementById('number3').value;
         
-              if (number1 == "" || number2 == "" || number3 == "") {
+              if (figure1 == "" || figure2 == "" || figure3 == "") {
                 document.getElementById("result").value = "Please fill all the fields with valid numbers!"
               } else {
-                n1 = parseInt(number1);
-                n2 = parseInt(number2);
-                n3 = parseInt(number3);
+                n1 = parseInt(figure1);
+                n2 = parseInt(figure2);
+                n3 = parseInt(figure3);
         
                 sum = n1 + n2 + n3;
                 average = sum / 3;
@@ -41,7 +41,7 @@
                 min = Math.min(n1, n2, n3);
                 max = Math.max(n1, n2, n3);
 
-                document.getElementById("result").value = (`Sum: ${sum}, Average: ${average}, Product: ${product}, Minimum: ${min}, Maximum: ${max}`);
+                document.getElementById("result").value = (`Sum: ${sum}\nAverage: ${average}\nProduct: ${product}\nMinimum: ${min}\nMaximum: ${max}`);
               }
             }
           </script>
@@ -53,17 +53,17 @@
         </header>
     <section>
         <h3>Homework #2 Part 2</h3>
-        <form id="number-form" onsubmit="process();return false">
-            <label for="num1">Number 1</label>
-            <input type="number" name="num1" id="num1" autofocus><br>
-            <label for="num2">Number 2</label>
-            <input type="number" name="num2" id="num2"><br>
-            <label for="num3">Number 3</label>
-            <input type="number" name="num3" id="num3"><br>
+        <form id="figure-form" onsubmit="process();return false">
+            <label for="number1">Number 1</label>
+            <input type="figure" name="number1" id="number1" autofocus><br>
+            <label for="number2">Number 2</label>
+            <input type="figure" name="number2" id="number2"><br>
+            <label for="number3">Number 3</label>
+            <input type="figure" name="number3" id="number3"><br>
             <textarea name="result" id="result" cols="25" rows="5" readonly></textarea><br>
             <div id="button-group">
               <button type="submit" id="submit" onclick="process()">Submit</button>
-              <button type="button" id="fade-button">Effect</button>
+              <button type="button" id="button">Effect</button>
               <button type="reset">Reset</button>
             </div>
           </form>

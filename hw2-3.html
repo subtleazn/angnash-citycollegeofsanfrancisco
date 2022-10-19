@@ -12,11 +12,11 @@
         </title>
         <script>
           $(document).ready(function() {
-            $("#flip").click(function() {
-              $("#panel").slideToggle("slow");
+            $("#open").click(function() {
+              $("#show").slideToggle("slow");
             });
             $("#usd").focus(function() {
-              $(this).css("background-color", 'yellow');
+              $(this).css("background-color", 'pink');
             });
           });
       
@@ -29,15 +29,15 @@
             const jpyRate = 110.80;
             const mxnRate = 19.82;
       
-            function usdConversion(usdAmount, exchangeRate) {
+            function conversion(usdAmount, exchangeRate) {
               return (usdAmount * exchangeRate).toFixed(2);
             }
       
-            document.getElementById("eur").value = usdConversion(usd, eurRate);
-            document.getElementById("cad").value = usdConversion(usd, cadRate);
-            document.getElementById("hkd").value = usdConversion(usd, hkdRate);
-            document.getElementById("jpy").value = usdConversion(usd, jpyRate);
-            document.getElementById("mxn").value = usdConversion(usd, mxnRate);
+            document.getElementById("eur").value = conversion(usd, eurRate);
+            document.getElementById("cad").value = conversion(usd, cadRate);
+            document.getElementById("hkd").value = conversion(usd, hkdRate);
+            document.getElementById("jpy").value = conversion(usd, jpyRate);
+            document.getElementById("mxn").value = conversion(usd, mxnRate);
           }
       
         </script>
@@ -49,13 +49,12 @@
         </header>
     <section>
       <h3>Homework #2 Part 3</h3>
-      <button id="flip">Show/Hide Instructions</button>
-      <h3 id="panel">Enter the dollar amount in the table below to see the corresponding exchange rate:</h3>
+      <button id="open">Show/Hide Instructions</button>
+      <h3 id="show">Enter the dollar amount in the table below to see the corresponding exchange rate:</h3>
 
       <table>
         <thead>
           <tr>
-            <th><strong>Foreign Exchange Rate</strong></th>
             <td class="empty"></td>
             <td class="empty"></td>
           </tr>
@@ -67,34 +66,35 @@
             <th>Value</th>
           </tr>
           <tr>
-            <td>Euro</td>
-            <td>0.84</td>
-            <td><input type="text" id="eur" class="value" readonly></td>
+            <td>MXN $</td>
+            <td>19.82</td>
+            <td><input type="text" id="mxn" class="value" readonly></td>
           </tr>
           <tr>
-            <td>Canadian Dollar</td>
+            <td>CAD $</td>
             <td>1.23</td>
             <td><input type="text" id="cad" class="value" readonly></td>
           </tr>
           <tr>
-            <td>Hong Kong Dollar</td>
+            <td>HKD $</td>
             <td>7.76</td>
             <td><input type="text" id="hkd" class="value" readonly></td>
           </tr>
           <tr>
-            <td>Japanese Yen</td>
+            <td>EUR €</td>
+            <td>0.84</td>
+            <td><input type="text" id="eur" class="value" readonly></td>
+          </tr>
+          <tr>
+            <td>JPY ¥</td>
             <td>110.80</td>
             <td><input type="text" id="jpy" class="value" readonly></td>
           </tr>
-          <tr>
-            <td>Mexican Peso</td>
-            <td>19.82</td>
-            <td><input type="text" id="mxn" class="value" readonly></td>
-          </tr>
+
         </tbody>
         <tfoot>
           <tr>
-            <th><label for="usd">Enter Amount of U.S. Dollars</label></th>
+            <th><label for="usd">Enter Amount of USD $</label></th>
             <td><input type="number" id="usd" onchange="process()"></td>
             <td class="empty"></td>
           </tr>

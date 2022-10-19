@@ -44,7 +44,7 @@ caption {
   var interestRate = 0.05;
 
   for (var i = 0; i < 3; i++) {
-    tb += "<table><tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>"
+    tb += "<table><tr><th>Year</th><th>Deposit Amount</th><th>Interest Rate</th></tr>"
     for (var j = 1; j <= 4; j++) {
       tb += `<tr><td>${j}</td><td>${(1000 * Math.pow(1 + interestRate, j)).toFixed(2)}</td><td>${interestRate.toFixed(2)}</td></tr>`;
     }

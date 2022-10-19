@@ -13,7 +13,7 @@
         </title>
         <script>
           $(document).ready(function(){
-            $("#grade-calculator").validate({
+            $("#calculator").validate({
               rules: {
                 homework: {required: true, number: true, min: 0, max: 100},
                 midterm: {required: true, number: true, min: 0, max: 100},
@@ -24,7 +24,7 @@
           });
       
           function process() {
-            if($("#grade-calculator").valid()) {
+            if($("#calculator").valid()) {
 
               var homework, midterm, final, participation, average, grade;
               homework = parseFloat(document.getElementById("homework").value);
@@ -60,7 +60,7 @@
         </header>
     <section>
       <h3>Homework #3 Part 1</h3>
-      <form id="grade-calculator" onsubmit="process();return false">
+      <form id="calculator" onsubmit="process();return false">
         <label for="homework">Homework Average</label>
         <input type="number" name="homework" id="homework" autofocus><br>
         <label for="participation">Participation Average</label>

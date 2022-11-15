@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Homework 5 Part 3">
+<link rel="stylesheet" type="text/css" href="index.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    United States Population by State
+</title>
+
+<style>
+      td, th {
+      padding: 1rem;
+      text-align: left;
+  }
+</style>
+
+<script>
+
+function search() {
+
+    var STATES = {
+        'AK': 'Alaska',
+        'AL': 'Alabama',
+        'AR': 'Arkansas',
+        'AZ': 'Arizona',
+        'CA': 'California',
+        'CO': 'Colorado',
+        'CT': 'Connecticut',
+        'DC': 'District of Columbia',
+        'DE': 'Delaware',
+        'FL': 'Florida',
+        'GA': 'Georgia',
+        'HI': 'Hawaii',
+        'IA': 'Iowa',
+        'ID': 'Idaho',
+        'IL': 'Illinois',
+        'IN': 'Indiana',
+        'KS': 'Kansas',
+        'KY': 'Kentucky',
+        'LA': 'Louisiana',
+        'MA': 'Massachusetts',
+        'MD': 'Maryland',
+        'ME': 'Maine',
+        'MI': 'Michigan',
+        'MN': 'Minnesota',
+        'MO': 'Missouri',
+        'MS': 'Mississippi',
+        'MT': 'Montana',
+        'NC': 'North Carolina',
+        'ND': 'North Dakota',
+        'NE': 'Nebraska',
+        'NH': 'New Hampshire',
+        'NJ': 'New Jersey',
+        'NM': 'New Mexico',
+        'NV': 'Nevada',
+        'NY': 'New York',
+        'OH': 'Ohio',
+        'OK': 'Oklahoma',
+        'OR': 'Oregon',
+        'PA': 'Pennsylvania',
+        'RI': 'Rhode Island',
+        'SC': 'South Carolina',
+        'SD': 'South Dakota',
+        'TN': 'Tennessee',
+        'TX': 'Texas',
+        'UT': 'Utah',
+        'VA': 'Virginia',
+        'VT': 'Vermont',
+        'WA': 'Washington',
+        'WI': 'Wisconsin',
+        'WV': 'West Virginia',
+        'WY': 'Wyoming'
+    };
+
+    var found = false;
+    var state = document.getElementById("state").value.toUpperCase();
+    var short = state.length === 2 ;
+    if (short) {
+        if (state in STATES) {
+            found = stateData(STATES[state].toUpperCase());
+        } else {
+            found = false;
+        }
+    } else {
+        found = stateData(state);
+    }
+
+    if (!found) {
+        document.getElementById("result").innerHTML = ""
+        document.getElementById("results").innerHTML = "";
+    } else {
+        document.getElementById("none").innerHTML = "Please try again!";
+    }
+}
+
+async function stateData(name) {
+    var found = false;
+    const API_URL = "https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest";
+    const RESPONSE = await fetch(API_URL);
+    const DATA = await RESPONSE.json();
+    const POPULATION = DATA.data;
+
+
+    for (var people=0; people<POPULATION.length; people++) {
+        if (POPULATION[people]["State"].toUpperCase() === name) {
+            document.getElementById("none").innerHTML = "";
+            document.getElementById("result").innerHTML = "<td colspan='4'><p><em>Result:</em></p></td>";
+            document.getElementById("results").innerHTML = `<td>Location:</td><td>${name}</td><td>Population:</td><td>${POPULATION[people]["Population"]}</td>`;
+            found = true;
+            break;
+        }
+    }
+
+    return found;
+}
+
+
+
+</script>
+</head>
+
+<body>
+<header class="text-center">
+    <h1>2022 United States Census Data</h1>
+    <h2>By Nash Ang</h2>
+</header>
+
+
+<div>
+    <form name="census">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="4">Year 2022 Per State Population</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><label for="state">Type Any State: </label></td>
+                <td><input id="state" name="state" type="text" required></td>
+                <td><input id="find" name="find" value="SHOW" type="button" onclick="search();"></td>
+                <td id="none"></td>
+            </tr>
+            <tr id="result"></tr> 
+            <tr id="results"></tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+<div id="foot">
+    <br>
+    &#8226;
+    <strong><a href="hw5.html">Go back to Homework 5</a></strong> 
+    &#8226;     
+    <strong><a href="index.html">Return to Homepage</a></strong>
+    &#8226;
+    </div>
+<footer>
+    <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+</footer>
+</body>
+</html>

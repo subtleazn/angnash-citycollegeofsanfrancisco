@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Homework 5 Part 1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Student Registration Details
+</title>
+
+<style>
+  
+  td {
+      padding: 0.5rem;
+      text-align: left;
+  }
+
+  th {
+    padding: 1rem;
+    text-align: center;
+  }
+   
+  table {
+      background: #eee;
+  }
+
+  #noname, #noradio, #nobrowser, #nogenre {
+    color: red;
+  }
+
+  textarea {
+  width: 400px;
+  height: 150px;
+}
+
+  </style>
+
+<script>
+
+
+function submitMyInfo() {
+    const fieldRquired = "<p>required</p>";
+    var flag = true;
+
+    var fullname = document.getElementById("fullname").value;
+    if (fullname === "") {
+        document.getElementById("noname").innerHTML = fieldRquired;
+        flag = false;
+    } else {
+        document.getElementById("noname").innerHTML = "";
+        flag = true;
+    }
+
+    var agegroups = document.querySelectorAll('input[name="age"]');
+    var age = -1;
+    for (var item of agegroups) {
+        if (item.checked) {
+            age = item.value;
+            break;
+        }
+    }
+    if (age === -1) {
+        document.getElementById("noradio").innerHTML = fieldRquired;
+        flag = false;
+    } else {
+        document.getElementById("noradio").innerHTML = "";
+        flag = true;
+    }
+
+    
+    var browsers = document.querySelectorAll('input[name="browser"]');
+    var browser = [];
+    for (var item of browsers) {
+        if (item.checked) {
+            browser.push(item.value);
+        }
+    }
+    if (browser.length === 0) {
+        document.getElementById("nobrowser").innerHTML = fieldRquired;
+        flag = false;
+    } else {
+        document.getElementById("nobrowser").innerHTML = "";
+        flag = true;
+    }
+
+    var genre = document.getElementById("genre");
+    if (genre.selectedIndex === 0) {
+        document.getElementById("nogenre").innerHTML = fieldRquired;
+        flag = false;
+    } else {
+        document.getElementById("nogenre").innerHTML = "";
+        flag = true;
+    }
+
+
+    if (flag) {
+        document.getElementById("myinfo").value = `Thanks ${fullname}, your information is submitted! To review, you are ${age} years old. Your browser preference is ${browser.join(', ')} and favorite movie genre is ${genre.value}.`
+    }
+}
+
+function clearMyInfo() {
+
+    document.getElementById("fullname").value = "";
+
+    var radios = document.querySelectorAll('input[name="age"]');
+    for (var radio of radios) { radio.checked = false; }
+
+    var browsers = document.querySelectorAll('input[name="browser"]');
+    for (var browser of browsers) { browser.checked = false; }
+
+    document.querySelector("#genre").selectedIndex = 0;
+
+    document.getElementById("myinfo").value = "";
+}
+
+
+</script>
+</head>
+
+<body>
+<header class="text-center">
+    <h1>Student Registration Details</h1>
+    <h2>By Nash Ang</h2>
+</header>
+
+  <div>
+    <form name="myinfo">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3">Club Registration Information</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><label for="fullname">Full Name: </label></td>
+                <td><input id="fullname" value="" type="text" autofocus required></td>
+                <td id="noname"></td>
+            </tr>
+            <tr>
+                <td><p><strong>Your Age Group:</strong></p></td>
+                <td>
+                    <input id="less_than_21" type="radio" name="age" value="less than 21" class="radio">
+                    <label for="less_than_21">Less than 21</label>
+                    <input id="between_21_and_50" type="radio" name="age" value="around 21 and 50" class="radio">
+                    <label for="between_21_and_50">Around 21 to 50</label>
+                    <input id="greater_than_50" type="radio" name="age" value="greater than 50" class="radio">
+                    <label for="greater_than_50">Greater than 50</label>
+                    <td id="noradio"></td>
+            </tr>
+            
+            <tr>
+                <td><p><strong>Your Browser:</strong></p></td>
+                <td>
+                    <input id="firefox" type="checkbox" name="browser" value="Firefox">
+                    <label for="firefox">Firefox</label>
+                    <input id="edge" type="checkbox" name="browser" value="Edge">
+                    <label for="edge">Edge</label>
+                    <input id="chrome" type="checkbox" name="browser" value="Chrome">
+                    <label for="chrome">Chrome</label>
+                    <input id="safari" type="checkbox" name="browser" value="Safari">
+                    <label for="safari">Safari</label>
+                    <td id="nobrowser"></td>
+            </tr>
+            <tr>
+                <td><label for="genre">Movie Genre:</label></td>
+                <td>
+                    <select name="genre" id="genre">
+                        <option>Select</option>
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Sci-Fi">Science Fiction</option>
+                    </select>
+                    <td id="nogenre"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <input id="submit_myinfo" type="button" value="SUBMIT" onclick="submitMyInfo();">
+                    <input id="clear_form" type="button" value="CLEAR" onclick="clearMyInfo();">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="myinfo">Preview:</label></td>
+                <td colspan="2"><textarea id="myinfo" readonly></textarea></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+<div id="foot">
+    <br>
+    &#8226;
+    <strong><a href="hw5.html">Go back to Homework 5</a></strong> 
+    &#8226;     
+    <strong><a href="index.html">Return to Homepage</a></strong>
+    &#8226;
+    </div>
+
+<footer>
+    <p><em>City College of San Francisco CCNIT 133 Class of Fall 2022</em></p> 
+</footer>
+</body>
+</html>

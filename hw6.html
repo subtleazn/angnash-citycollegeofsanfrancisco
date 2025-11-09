@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Coming Soon!">
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <title>
-            Coming Soon!
-        </title>
-    </head>
-    <body>
-        <header>
-            Coming Soon!
-        </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="DOM Manipulation and Events">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>DOM Manipulation and Events</title>
+</head>
+<body>
+    <header class="text-center">
+        <h1>DOM Manipulation and Events</h1>
+        <h2>By Nash Ang</h2>
+    </header>
     <section>
+        <h3>Homework #6</h3>
+        <div class="card">
+            <h4>Demonstration:</h4>
+            <p>This page demonstrates basic DOM manipulation and event handling. Clicking the button will change the text of the paragraph below.</p>
+            <p id="text-to-change">Original Text</p>
+            <button id="change-text-btn">Change Text</button>
+        </div>
+
         <div id="foot">
             &#8226; 
             <strong><a href="index.html">Return to Homepage</a></strong>
             &#8226;
-            </div>
+        </div>
     </section>
-    </body>
-    </html>
+    <script>
+        const changeTextBtn = document.getElementById('change-text-btn');
+        const textToChange = document.getElementById('text-to-change');
+
+        changeTextBtn.addEventListener('click', () => {
+            textToChange.textContent = 'The text has been changed!';
+        });
+    </script>
+    <footer><p><em>City College of San Francisco - Computer Networking and Information Technology (CNIT) 133 - Fall 2022</em></p> </footer>
+</body>
+</html>

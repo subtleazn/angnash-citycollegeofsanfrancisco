@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Coming Soon!">
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <title>
-            Coming Soon!
-        </title>
-    </head>
-    <body>
-        <header>
-            Coming Soon!
-        </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="AJAX and Fetch API">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>AJAX and Fetch API</title>
+</head>
+<body>
+    <header class="text-center">
+        <h1>AJAX and Fetch API</h1>
+        <h2>By Nash Ang</h2>
+    </header>
     <section>
+        <h3>Homework #7</h3>
+        <div class="card">
+            <h4>Demonstration:</h4>
+            <p>This page demonstrates how to use the Fetch API to retrieve data from a public API and display it on the page. Clicking the button will fetch a random quote.</p>
+            <blockquote id="quote"></blockquote>
+            <button id="fetch-quote-btn">Fetch New Quote</button>
+        </div>
+
         <div id="foot">
             &#8226; 
             <strong><a href="index.html">Return to Homepage</a></strong>
             &#8226;
-            </div>
+        </div>
     </section>
-    </body>
-    </html>
+    <script>
+        const fetchQuoteBtn = document.getElementById('fetch-quote-btn');
+        const quoteEl = document.getElementById('quote');
+
+        const fetchQuote = () => {
+            quoteEl.textContent = 'Loading...';
+            fetch('https://api.quotable.io/random')
+                .then(response => response.json())
+                .then(data => {
+                    quoteEl.textContent = `"${data.content}" - ${data.author}`;
+                })
+                .catch(error => {
+                    quoteEl.textContent = 'Sorry, something went wrong.';
+                    console.error(error);
+                });
+        };
+
+        fetchQuoteBtn.addEventListener('click', fetchQuote);
+
+        // Fetch a quote on page load
+        fetchQuote();
+    </script>
+    <footer><p><em>City College of San Francisco - Computer Networking and Information Technology (CNIT) 133 - Fall 2022</em></p> </footer>
+</body>
+</html>

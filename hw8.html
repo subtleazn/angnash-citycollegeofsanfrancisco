@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Coming Soon!">
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <title>
-            Coming Soon!
-        </title>
-    </head>
-    <body>
-        <header>
-            Coming Soon!
-        </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Introduction to jQuery">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Introduction to jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header class="text-center">
+        <h1>Introduction to jQuery</h1>
+        <h2>By Nash Ang</h2>
+    </header>
     <section>
+        <h3>Homework #8</h3>
+        <div class="card">
+            <h4>Demonstration:</h4>
+            <p>This page demonstrates some basic jQuery functionality. Clicking the button will hide and show the paragraph below.</p>
+            <p id="text-to-toggle">This is a paragraph that will be hidden and shown.</p>
+            <button id="toggle-btn">Toggle Paragraph</button>
+        </div>
+
         <div id="foot">
             &#8226; 
             <strong><a href="index.html">Return to Homepage</a></strong>
             &#8226;
-            </div>
+        </div>
     </section>
-    </body>
-    </html>
+    <script>
+        $(document).ready(function(){
+            $('#toggle-btn').click(function(){
+                $('#text-to-toggle').toggle();
+            });
+        });
+    </script>
+    <footer><p><em>City College of San Francisco - Computer Networking and Information Technology (CNIT) 133 - Fall 2022</em></p> </footer>
+</body>
+</html>

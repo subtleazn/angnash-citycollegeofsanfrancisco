@@ -33,6 +33,10 @@ The homework assignments in this repository demonstrate the practical applicatio
 2.  Open `index.html` in your web browser to view the main portfolio page.
 3.  From the main page, you can navigate to each homework assignment.
 
+## Deployment
+
+This portfolio is deployed using Azure Static Web Apps, making it easily accessible online. You can view the live site here: [https://mango-mushroom-0e307a81e.3.azurestaticapps.net/](https://mango-mushroom-0e307a81e.3.azurestaticapps.net/)
+
 ## Author
 
 *   **Nash Ang** - [subtleazn](https://github.com/subtleazn)

@@ -7,25 +7,27 @@
     <title>DOM Manipulation and Events</title>
 </head>
 <body>
-    <header class="text-center">
+    <header>
         <h1>DOM Manipulation and Events</h1>
         <h2>By Nash Ang</h2>
     </header>
-    <section>
-        <h3>Homework #6</h3>
-        <div class="card">
-            <h4>Demonstration:</h4>
-            <p>This page demonstrates basic DOM manipulation and event handling. Clicking the button will change the text of the paragraph below.</p>
-            <p id="text-to-change">Original Text</p>
-            <button id="change-text-btn">Change Text</button>
-        </div>
+    <div class="container">
+        <section>
+            <h3>Homework #6</h3>
+            <div class="card">
+                <h4>Demonstration:</h4>
+                <p>This page demonstrates basic DOM manipulation and event handling. Clicking the button will change the text of the paragraph below.</p>
+                <p id="text-to-change">Original Text</p>
+                <button id="change-text-btn">Change Text</button>
+            </div>
 
-        <div id="foot">
-            &#8226; 
-            <strong><a href="index.html">Return to Homepage</a></strong>
-            &#8226;
-        </div>
-    </section>
+            <div id="foot">
+                &#8226; 
+                <strong><a href="index.html">Return to Homepage</a></strong>
+                &#8226;
+            </div>
+        </section>
+    </div>
     <script>
         const changeTextBtn = document.getElementById('change-text-btn');
         const textToChange = document.getElementById('text-to-change');

@@ -1,6 +1,6 @@
-# CNIT 133 - JavaScript, AJAX, and jQuery
+# Computer Networking and Information Technology (CNIT) 133 - JavaScript, AJAX, and jQuery
 
-This repository contains the homework assignments for the CNIT 133 course (JavaScript, AJAX, and jQuery) at City College of San Francisco, completed in the Fall 2022 semester.
+This repository contains the homework assignments for the Computer Networking and Information Technology (CNIT) 133 course (JavaScript, AJAX, and jQuery) at City College of San Francisco, completed in the Fall 2022 semester.
 
 ## About the Course
 
